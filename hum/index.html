@@ -2,8 +2,24 @@
 <head>
   <title> Hummm... </title>
   <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+  <style>
+    @media (orientation: landscape) {
+      :root{
+        --text-scale-unit: 1vh;
+      }
+    }
+    @media (orientation: portrait) {
+      :root {
+        --text-scale-unit: 1vw;
+      }
+    }
+  </style>
 </head>
-<body style="background: #282a36; color: #f1fa8c; font-family: Fira mono; margin:40px;">
+<body style="
+             background: #282a36; 
+             color: #f1fa8c; font-family:
+             Fira mono; font-size: calc(var(--text-scale-unit) * 3);
+             margin:calc(var(--text-scale-unit) * 6);">
   <p style="overflow-wrap: break-word;">
     <span id="hum">Humm</span>
     <span id="cursor" style="transition: 250ms; margin-left: -8px;">|</span>
