@@ -2,20 +2,6 @@
 <head>
   <title> Hummm... </title>
   <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
-  <script>
-    (function(){
-      // if firefox 3.5+, hide content till load (or 3 seconds) to prevent FOUT
-      var d = document, e = d.documentElement, s = d.createElement('style');
-      if (e.style.MozTransform === ''){ // gecko 1.9.1 inference
-        s.textContent = 'body{visibility:hidden}';
-        var r = document.getElementsByTagName('script')[0];
-        r.parentNode.insertBefore(s, r);
-        function f(){ s.parentNode && s.parentNode.removeChild(s); }
-        addEventListener('load',f,false);
-        setTimeout(f,3000);
-      }
-    })();
-  </script>
 </head>
 <body style="background: #282a36; color: #f1fa8c; font-family: Fira mono; margin:40px;">
   <p style="overflow-wrap: break-word;">
