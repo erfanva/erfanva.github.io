@@ -1,34 +1,53 @@
 <html>
+
 <head>
-  <title> Hummm... </title>
-  <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
-  <style>
-    @media (orientation: landscape) {
-      :root{
-        --text-scale-unit: 1vh;
-      }
-    }
-    @media (orientation: portrait) {
-      :root {
-        --text-scale-unit: 1vw;
-      }
-    }
-  </style>
+    <title> Hummm... </title>
+    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+    <style>
+        @media (orientation: landscape) {
+            :root {
+                --text-scale-unit: 1vh;
+            }
+        }
+
+        @media (orientation: portrait) {
+            :root {
+                --text-scale-unit: 1vw;
+            }
+        }
+
+        body {
+            background: #282a36;
+            color: #f1fa8c;
+            font-family: Fira mono;
+            margin: calc(var(--text-scale-unit) * 6);
+        }
+
+        #container {
+            text-align: center;
+            overflow-wrap: break-word;
+            font-size: 0;
+        }
+
+        #cursor,
+        #text {
+            transition: 250ms;
+            font-size: calc(var(--text-scale-unit) * 4);
+        }
+    </style>
 </head>
-<body style="
-             background: #282a36; 
-             color: #f1fa8c; font-family:
-             Fira mono; font-size: calc(var(--text-scale-unit) * 4);
-             margin:calc(var(--text-scale-unit) * 6);">
-  <p style="overflow-wrap: break-word;">
-    <span id="hum">Humm</span>
-    <span id="cursor" style="transition: 250ms; margin-left: -8px;">|</span>
-  </p>
-  <script>
-  setInterval( function () {
-      document.querySelector('#hum').innerText += 'm'
-      document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
-  }, 500)
-  </script>
+
+<body>
+    <p style="overflow-wrap: break-word;">
+        <span id="text">Humm</span>
+        <span id="cursor" style="transition: 250ms; margin-left: -8px;">|</span>
+    </p>
+    <script>
+        setInterval(function () {
+            document.querySelector('#text').innerText += 'm'
+            document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
+        }, 500)
+    </script>
 </body>
+
 </html>
