@@ -21,7 +21,7 @@
             background: #282a36;
             color: #f1fa8c;
             font-family: Fira mono;
-            font-size: calc(var(--text-scale-unit) * 12);
+            font-size: calc(var(--text-scale-unit) * 7);
             margin: calc(var(--text-scale-unit) * 30);
         }
 
@@ -42,16 +42,25 @@
         const str = `Hi, I'm Erfan Vahabi :)`
         document.title = str
         let i = 0;
+        let isDeleting = false
         setInterval(function () {
-            if (i >= str.length) {
-                document.querySelector('#text').innerText += '\n'
-                i = 0
-                return
-            }
-            document.querySelector('#text').innerText += str[i]
+            // cursor 
             document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
-            i++;
-        }, 500)
+        }, 400)   
+        setInterval(function () {
+            // text typing
+            if (isDeleting) {
+                document.querySelector('#text').innerText = document.querySelector('#text').innerText.slice(0, -1)
+                i--;
+            } else {
+                document.querySelector('#text').innerText += str[i]
+                i++;
+            }
+            // change state
+            if (i == str.length || i == 0) {
+                isDeleting = !isDeleting
+            }
+        }, 300)
     </script>
 </body>
 
