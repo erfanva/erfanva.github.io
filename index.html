@@ -21,7 +21,7 @@
             background: #282a36;
             color: #f1fa8c;
             font-family: Fira mono;
-            margin: calc(var(--text-scale-unit) * 30);
+            margin-top: calc(var(--text-scale-unit) * 30);
         }
 
         #container {
@@ -29,6 +29,7 @@
             overflow-wrap: break-word;
             font-size: 0;
         }
+
         #cursor,
         #text {
             transition: 250ms;
@@ -50,7 +51,7 @@
         setInterval(function () {
             // cursor 
             document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
-        }, 400)   
+        }, 400)
         setInterval(function () {
             // text typing
             if (isDeleting) {
@@ -69,3 +70,4 @@
 </body>
 
 </html>
+
