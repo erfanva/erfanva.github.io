@@ -21,20 +21,24 @@
             background: #282a36;
             color: #f1fa8c;
             font-family: Fira mono;
-            font-size: calc(var(--text-scale-unit) * 7);
             margin: calc(var(--text-scale-unit) * 30);
         }
 
+        #container {
+            text-align: center;
+            overflow-wrap: break-word;
+            font-size: 0;
+        }
         #cursor,
         #text {
             transition: 250ms;
-            margin-left: -8px;
+            font-size: calc(var(--text-scale-unit) * 7);
         }
     </style>
 </head>
 
 <body>
-    <p style="text-align: center; overflow-wrap: break-word;">
+    <p id="container">
         <span id="text"></span>
         <span id="cursor">|</span>
     </p>
