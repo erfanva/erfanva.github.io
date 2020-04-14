@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>erfan va</title>
+    <title>Welcome to here!</title>
+    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+    <style>
+        @media (orientation: landscape) {
+            :root {
+                --text-scale-unit: 1vh;
+            }
+        }
+
+        @media (orientation: portrait) {
+            :root {
+                --text-scale-unit: 1vw;
+            }
+        }
+
+        body {
+            background: #282a36;
+            color: #f1fa8c;
+            font-family: Fira mono;
+            font-size: calc(var(--text-scale-unit) * 12);
+            margin: calc(var(--text-scale-unit) * 30);
+        }
+
+        #cursor,
+        #text {
+            transition: 250ms;
+            margin-left: -8px;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Hello World!</h1>
-  <footer>(:)</footer>
+    <p style="text-align: center; overflow-wrap: break-word;">
+        <span id="text"></span>
+        <span id="cursor">|</span>
+    </p>
+    <script>
+        const str = `Hi, I'm Erfan Vahabi :)`
+        document.title = str
+        let i = 0;
+        setInterval(function () {
+            if (i >= str.length) {
+                document.querySelector('#text').innerText += '\n'
+                i = 0
+                return
+            }
+            document.querySelector('#text').innerText += str[i]
+            document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
+            i++;
+        }, 500)
+    </script>
 </body>
+
 </html>
