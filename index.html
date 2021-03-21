@@ -3,7 +3,7 @@
 
 <head>
     <title>Welcome to here!</title>
-    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+    <link rel="preload" href="https://code.cdn.mozilla.net/fonts/fira.css" as="style">>
     <style>
         @media (orientation: landscape) {
             :root {
@@ -48,17 +48,14 @@
         document.title = str
         let i = 0;
         let isDeleting = false
-        setInterval(function () {
-            // cursor 
-            document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
-        }, 400)
+        const textBox = document.querySelector('#text')
         setInterval(function () {
             // text typing
             if (isDeleting) {
-                document.querySelector('#text').innerText = document.querySelector('#text').innerText.slice(0, -1)
+                textBox.innerText = textBox.innerText.slice(0, -1)
                 i--;
             } else {
-                document.querySelector('#text').innerText += str[i]
+                textBox.innerText += str[i]
                 i++;
             }
             // change state
@@ -66,6 +63,12 @@
                 isDeleting = !isDeleting
             }
         }, 300)
+        // Flickering
+        const cursorElem = document.querySelector('#cursor')
+        setInterval(function () {
+            // cursor 
+            cursorElem.style.opacity = 1 - cursorElem.style.opacity
+        }, 400)
     </script>
 </body>
     <img src="https://erfanva.herokuapp.com/logo.jpg?i=erfanva.github.io">
