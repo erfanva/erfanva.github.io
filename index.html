@@ -4,6 +4,7 @@
 <head>
     <title>Welcome to here!</title>
     <link rel="preload" href="https://code.cdn.mozilla.net/fonts/fira.css" as="style">
+    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
     <style>
         @media (orientation: landscape) {
             :root {
@@ -45,6 +46,7 @@
     </p>
     <script>
         const str = `Hi, I'm Erfan Vahabi :)`
+        const delay = 200, cursorDelay = 400
         document.title = str
         let i = 0;
         let isDeleting = false
@@ -62,13 +64,13 @@
             if (i == str.length || i == 0) {
                 isDeleting = !isDeleting
             }
-        }, 300)
-        // Flickering
+        }, delay)
+        // Cursor flickering
         const cursorElem = document.querySelector('#cursor')
         setInterval(function () {
             // cursor 
             cursorElem.style.opacity = 1 - cursorElem.style.opacity
-        }, 400)
+        }, cursorDelay)
     </script>
 </body>
     <img src="https://erfanva.herokuapp.com/logo.jpg?i=erfanva.github.io">
