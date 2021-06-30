@@ -45,7 +45,9 @@
         <span id="cursor">|</span>
     </p>
     <script>
-        const str = `Hi, I'm Erfan Vahabi :)`
+        const url = new URL(window.location.href);
+        const msg = url.searchParams.get("msg");
+        const str = msg || `Hi, I'm Erfan Vahabi :)`
         const delay = 200, cursorDelay = 400
         document.title = str
         let i = 0;
