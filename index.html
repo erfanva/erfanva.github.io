@@ -44,6 +44,7 @@
         <span id="text"></span>
         <span id="cursor">|</span>
     </p>
+    <img id="logo" src="">
     <script>
         const referrer = document.referrer;
         const url = new URL(window.location.href);
@@ -76,9 +77,8 @@
         }, cursorDelay)
         
         const logo_i_param = encodeURIComponent("erfanva.github.io\nref: " + referrer);
-        document.querySelector("#logo").src = "https://botsapi.erfanva.com/assets/logo.png?i=" + logo_i_param;
+        document.querySelector("#logo")?.src = "https://botsapi.erfanva.com/assets/logo.png?i=" + logo_i_param;
     </script>
-    <img id="logo" src="">
 </body>
 </html>
 
