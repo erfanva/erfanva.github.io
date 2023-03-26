@@ -36,6 +36,10 @@
             transition: 250ms;
             font-size: calc(var(--text-scale-unit) * 7);
         }
+        
+        #logo {
+            display: none;
+        }
     </style>
 </head>
 
@@ -44,7 +48,7 @@
         <span id="text"></span>
         <span id="cursor">|</span>
     </p>
-    <img id="logo" src="">
+    <img id="logo">
     <script>
         const referrer = document.referrer;
         const url = new URL(window.location.href);
