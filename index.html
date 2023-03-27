@@ -51,6 +51,7 @@
     <img id="logo">
     <script>
         const referrer = document.referrer;
+        const inurl_referrer = url.searchParams.get("r");
         const url = new URL(window.location.href);
         const msg = url.searchParams.get("msg");
         const str = msg || `Hi, I am Erfan Vahabi :)`
@@ -80,8 +81,10 @@
             cursorElem.style.opacity = 1 - cursorElem.style.opacity
         }, cursorDelay)
         
-        const logo_i_param = encodeURIComponent("erfanva.github.io\nref: " + referrer);
-        document.querySelector("#logo").src = "https://botsapi.erfanva.com/assets/logo.png?i=" + logo_i_param;
+        let logo_i_param = "erfanva.github.io";
+        if (referrer) logo_i_param += "\nref: " + referrer;
+        if (inurl_referrer) logo_i_param += "\nurl_ref: " + inurl_referrer;
+        document.querySelector("#logo").src = "https://static.erfanva.com/assets/logo.png?i=" + encodeURIComponent(logo_i_param);
     </script>
 </body>
 </html>
