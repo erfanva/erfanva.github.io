@@ -50,9 +50,9 @@
     </p>
     <img id="logo">
     <script>
+        const url = new URL(window.location.href);
         const referrer = document.referrer;
         const inurl_referrer = url.searchParams.get("r");
-        const url = new URL(window.location.href);
         const msg = url.searchParams.get("msg");
         const str = msg || `Hi, I am Erfan Vahabi :)`
         const delay = 200, cursorDelay = 400
