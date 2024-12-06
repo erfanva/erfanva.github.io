@@ -34,6 +34,10 @@
             transition: 250ms;
             font-size: calc(var(--text-scale-unit) * 4);
         }
+
+        #logo {
+            display: none;
+        }
     </style>
 </head>
 
@@ -42,14 +46,24 @@
         <span id="text">Humm</span>
         <span id="cursor">|</span>
     </p>
+    <img id="logo">
     <script>
+        const url = new URL(window.location.href);
+        const referrer = document.referrer;
+        const inurl_referrer = url.searchParams.get("r");
+        
         const msg = url.searchParams.get("msg");
-        const str = msg || `hmm`;
+        const str = msg || `humm`;
         document.querySelector('#text').innerText = str;
         setInterval(function () {
             document.querySelector('#text').innerText += str[str.length-1];
             document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity;
-        }, 500)
+        }, 500);
+
+        let logo_i_param = "hum\ntext:"+str;
+        if (referrer) logo_i_param += "\nref: " + referrer;
+        if (inurl_referrer) logo_i_param += "\nurl_ref: " + inurl_referrer;
+        document.querySelector("#logo").src = "https://static.erfanva.com/assets/logo.png?i=" + encodeURIComponent(logo_i_param);
     </script>
 </body>
 
