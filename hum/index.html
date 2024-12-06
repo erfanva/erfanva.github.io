@@ -43,9 +43,12 @@
         <span id="cursor">|</span>
     </p>
     <script>
+        const msg = url.searchParams.get("msg");
+        const str = msg || `hmm`;
+        document.querySelector('#text').innerText = str;
         setInterval(function () {
-            document.querySelector('#text').innerText += 'm'
-            document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity
+            document.querySelector('#text').innerText += str[str.length-1];
+            document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity;
         }, 500)
     </script>
 </body>
