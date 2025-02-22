@@ -48,6 +48,8 @@
     </p>
     <img id="logo">
     <script>
+        const milli_sec_for_each_char = 300;
+            
         const url = new URL(window.location.href);
         const referrer = document.referrer;
         const inurl_referrer = url.searchParams.get("r");
@@ -58,7 +60,7 @@
         setInterval(function () {
             document.querySelector('#text').innerText += str[str.length-1];
             document.querySelector('#cursor').style.opacity = 1 - document.querySelector('#cursor').style.opacity;
-        }, 500);
+        }, milli_sec_for_each_char);
 
         let logo_i_param = "hum\ntext:"+str;
         if (referrer) logo_i_param += "\nref: " + referrer;
